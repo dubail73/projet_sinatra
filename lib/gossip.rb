@@ -23,5 +23,10 @@ class Gossip
     end
     return all_gossips
   end
+
+    def self.find(id)
+      all_gossips = Gossip.all # On récupère tous les gossips
+      return all_gossips[id.to_i - 1] # On retourne le gossip qui correspond à l'ID (en ajustant pour l'index)
+    end
 end
 #binding.pry
