@@ -16,7 +16,11 @@ class ApplicationController < Sinatra::Base
     puts "Ce programme ne fait rien pour le moment, on va donc afficher un message dans le terminal"
     redirect '/'
   end
-  
 
-  #Gossip.new("super_auteur", "super gossip").save
+  get '/gossips/:id' do
+    id = params['id'] 
+    puts "Voici le numéro du potin que tu veux : #{id}"
+    gossip = Gossip.find(id) 
+    erb :show, locals: { gossip: gossip } 
+  end
 end
